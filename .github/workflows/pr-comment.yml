@@ -1,0 +1,21 @@
+
+name: PR-comment
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-pr-comment:
+    runs-on: ubuntu-latest
+
+    permissions: 
+      pull-requests: write 
+
+    steps:
+      - name: Comment PR
+        uses: laraluys/actions-comment-pull-request@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          message: |
+            Hello world ! :wave:
